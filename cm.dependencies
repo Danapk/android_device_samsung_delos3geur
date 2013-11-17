@@ -1,5 +1,9 @@
 [
   {
+    "repository": "android_kernel_samsung_delos3geur",
+    "target_path": "kernel/samsung/delos3geur"
+  },
+  {
     "repository": "android_hardware_samsung",
     "target_path": "hardware/samsung"
   },
@@ -10,5 +14,9 @@
   {
     "repository": "android_hardware_qcom_media-legacy",
     "target_path": "hardware/qcom/media-legacy"
+  },
+  {
+    "repository": "android_hardware_atheros_wifi_libs",
+    "target_patch": "hardware/atheros/wifi/libs"
   }
 ]
