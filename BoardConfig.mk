@@ -37,14 +37,18 @@ TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a9
 ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HAVE_NEON := true
+TARGET_LEGACY_LPA := true
+LOCAL_CFLAGS += LEGACY_LPA
 TARGET_BOOTLOADER_BOARD_NAME := delos3geur
 
 # QCOM enhancements
 BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_GPS := true
 TARGET_USES_GENLOCK := true
 TARGET_USES_ION := true
 TARGET_QCOM_DISPLAY_VARIANT := caf
 TARGET_QCOM_MEDIA_VARIANT := caf
+
 
 # Target information
 TARGET_NO_BOOTLOADER := true
@@ -72,7 +76,6 @@ BOARD_HAVE_SAMSUNG_AUDIO := true
 TARGET_QCOM_AUDIO_VARIANT := caf
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_FLUENCE_INCALL := true
-BOARD_USES_FLUENCE_FOR_VOIP := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
 TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO:= true
@@ -93,6 +96,7 @@ BOARD_EGL_CFG := device/samsung/delos3geur/configuration/egl.cfg
 USE_OPENGL_RENDERER := true
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
+TARGET_USES_C2D_COMPOSITION := true
 
 # BT
 BOARD_HAVE_BLUETOOTH := true
@@ -110,7 +114,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/recovery.fstab
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/recovery/graphics.c
 
-# Misc
+# Legacy FB
 BOARD_EGL_NEEDS_LEGACY_FB := true
 
 # TWRP specific build flags
