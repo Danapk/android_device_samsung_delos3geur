@@ -39,6 +39,8 @@ TARGET_BOOTLOADER_BOARD_NAME := delos3geur
 
 # QCOM enhancements
 BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_GENLOCK := true
+TARGET_USES_ION := true
 
 # Target information
 TARGET_NO_BOOTLOADER := true
