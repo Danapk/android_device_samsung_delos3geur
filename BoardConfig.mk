@@ -18,6 +18,8 @@
 
 BOARD_VENDOR := samsung
 
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
+
 TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS   += -DQCOM_NO_SECURE_PLAYBACK -DBINDER_COMPAT
