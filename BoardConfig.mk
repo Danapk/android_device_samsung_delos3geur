@@ -13,10 +13,10 @@
 # limitations under the License.
 #
 
-# Inherit stuff from Samsung Qcom-Common Tree
--include device/samsung/qcom-common/BoardConfigCommon.mk
 # inherit from the proprietary version
 -include vendor/samsung/delos3geur/BoardConfigVendor.mk
+
+BOARD_VENDOR := samsung
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
 
@@ -27,14 +27,27 @@ COMMON_GLOBAL_CFLAGS   += -DQCOM_NO_SECURE_PLAYBACK -DBINDER_COMPAT
 
 TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno203
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a5
 TARGET_ARCH_VARIANT_FPU := neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a9
+ARCH_ARM_HIGH_OPTIMIZATION := true
+ARCH_ARM_HAVE_NEON := true
+TARGET_LEGACY_LPA := true
+LOCAL_CFLAGS += LEGACY_LPA
 TARGET_BOOTLOADER_BOARD_NAME := delos3geur
 
 # QCOM enhancements
+BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_GPS := true
+TARGET_USES_GENLOCK := true
+TARGET_USES_ION := true
+TARGET_QCOM_DISPLAY_VARIANT := caf
+TARGET_QCOM_MEDIA_VARIANT := caf
 
 
 # Target information
