@@ -58,4 +58,4 @@ ro.ril.def.agps.mode=2
 ro.ril.def.agps.feature=1
 
 # Camera hack
-ro.camera.hack=msm7627a
+ro.camera.hack=msm7x27a
