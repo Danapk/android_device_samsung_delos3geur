@@ -36,9 +36,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
 # Audio
 PRODUCT_PACKAGES += \
-	audio.primary.msm7627a \
+	audio.primary.msm7x27a \
 	audio.primary.default \
-   	audio_policy.msm7627a \
+   	audio_policy.msm7x27a \
     	audio_policy.default \
     	audio.a2dp.default \
     	audio_policy.conf \
@@ -57,9 +57,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     	libgenlock \
     	liboverlay \
-    	gralloc.msm7627a \
-    	hwcomposer.msm7627a \
-    	copybit.msm7627a \
+    	gralloc.msm7x27a \
+    	hwcomposer.msm7x27a \
+    	copybit.msm7x27a \
     	libtilerenderer \
     	libqdMetaData
 
@@ -84,11 +84,12 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    	power.msm7627a
+    	power.msm7x27a \
+    	libsurfaceflinger_client
 	
 # Lights HAL
 PRODUCT_PACKAGES += \
-    	lights.msm7627a
+    	lights.msm7x27a
 	
 # GPS
 PRODUCT_PACKAGES += \
@@ -96,14 +97,19 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    	camera.msm7627a	
+    	camera.msm7x27a	
 
 # Wi-Fi
 PRODUCTS_PACKAGES += \
-        ath6kl_sdio.ko	
+        ath6kl_sdio
 
-PRODUCT_COPY_FILES += \
-        device/samsung/delos3geur/prebuilt/lib/modules/ath6kl_sdio.ko:system/lib/modules/ath6kl_sdio.ko
+# Other
+PRODUCT_PACKAGES += \
+        dexpreopt \
+        librpc \
+        com.android.future.usb.accessory \
+        libnetcmdiface
 
 # Include non-opensource parts
 $(call inherit-product, vendor/samsung/delos3geur/delos3geur-vendor.mk)
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
