@@ -58,6 +58,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     gralloc.msm7x27a \
+    gralloc.default \
     hwcomposer.msm7x27a \
     copybit.msm7x27a \
     libtilerenderer \
@@ -80,7 +81,8 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.msm7x27a \
+    power.default \
+    power.golfish \
     libsurfaceflinger_client
 	
 # Lights HAL
