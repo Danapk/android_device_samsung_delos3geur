@@ -64,7 +64,6 @@ static GGLSurface gr_font_texture;
 static GGLSurface gr_framebuffer[NUM_BUFFERS];
 static GGLSurface gr_mem_surface;
 static unsigned gr_active_fb = 0;
-static unsigned double_buffering = 0;
 
 static int gr_fb_fd = -1;
 static int gr_vt_fd = -1;
@@ -76,7 +75,6 @@ static int get_framebuffer(GGLSurface *fb)
 {
     int fd;
     void *bits;
-    unsigned int shift, window;
 
     fd = open("/dev/graphics/fb0", O_RDWR);
     if (fd < 0) {
@@ -138,31 +136,23 @@ static int get_framebuffer(GGLSurface *fb)
         return -1;
     }
 
-    window = vi.yres * fi.line_length;
-
     fb->version = sizeof(*fb);
     fb->width = vi.xres;
     fb->height = vi.yres;
     fb->stride = fi.line_length/PIXEL_SIZE;
     fb->data = bits;
     fb->format = PIXEL_FORMAT;
-    memset(fb->data, 0, window);
+    memset(fb->data, 0, vi.yres * fi.line_length);
 
     fb++;
-
-    /* check if we can use double buffering */
-    if (vi.yres * fi.line_length * 2 > fi.smem_len)
-        return fd;
-
-    double_buffering = 1;
 
     fb->version = sizeof(*fb);
     fb->width = vi.xres;
     fb->height = vi.yres;
     fb->stride = fi.line_length/PIXEL_SIZE;
-    fb->data = (void*) (((unsigned) bits) + window + PAGE_SIZE - (window & (PAGE_SIZE - 1)));
+    fb->data = (void*) (((unsigned) bits) + vi.yres * fi.line_length);
     fb->format = PIXEL_FORMAT;
-    memset(fb->data, 0, window);
+    memset(fb->data, 0, vi.yres * fi.line_length);
 
     return fd;
 }
@@ -178,7 +168,7 @@ static void get_memory_surface(GGLSurface* ms) {
 
 static void set_active_framebuffer(unsigned n)
 {
-    if (n > 1 || !double_buffering) return;
+    if (n > 1) return;
     vi.yres_virtual = vi.yres * NUM_BUFFERS;
     vi.yoffset = n * vi.yres;
     vi.bits_per_pixel = PIXEL_SIZE * 8;
@@ -192,8 +182,7 @@ void gr_flip(void)
     GGLContext *gl = gr_context;
 
     /* swap front and back buffers */
-    if (double_buffering)
-        gr_active_fb = (gr_active_fb + 1) & 1;
+    gr_active_fb = (gr_active_fb + 1) & 1;
 
     /* copy data from the in-memory surface to the buffer we're about
      * to make active. */

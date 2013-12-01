@@ -2,7 +2,7 @@
  * include/linux/ion.h
  *
  * Copyright (C) 2011 Google, Inc.
- * Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2011-2012, Code Aurora Forum. All rights reserved.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -33,7 +33,6 @@ struct ion_handle;
  * @ION_HEAP_TYPE_CP:	 memory allocated from a prereserved
  *				carveout heap, allocations are physically
  *				contiguous. Used for content protection.
- * @ION_HEAP_TYPE_DMA:          memory allocated via DMA API
  * @ION_HEAP_END:		helper for iterating over heaps
  */
 enum ion_heap_type {
@@ -42,7 +41,6 @@ enum ion_heap_type {
 	ION_HEAP_TYPE_CARVEOUT,
 	ION_HEAP_TYPE_IOMMU,
 	ION_HEAP_TYPE_CP,
-	ION_HEAP_TYPE_DMA,
 	ION_HEAP_TYPE_CUSTOM, /* must be last so device specific heaps always
 				 are at the end of this enum */
 	ION_NUM_HEAPS,
@@ -52,16 +50,6 @@ enum ion_heap_type {
 #define ION_HEAP_SYSTEM_CONTIG_MASK	(1 << ION_HEAP_TYPE_SYSTEM_CONTIG)
 #define ION_HEAP_CARVEOUT_MASK		(1 << ION_HEAP_TYPE_CARVEOUT)
 #define ION_HEAP_CP_MASK		(1 << ION_HEAP_TYPE_CP)
-#define ION_HEAP_TYPE_DMA_MASK         (1 << ION_HEAP_TYPE_DMA)
-
-/**
- * heap flags - the lower 16 bits are used by core ion, the upper 16
- * bits are reserved for use by the heaps themselves.
- */
-#define ION_FLAG_CACHED 1    /* mappings of this buffer should be
-             cached, ion will do cache
-             maintenance when the buffer is
-             mapped for dma */
 
 
 /**
@@ -75,21 +63,13 @@ enum ion_heap_type {
 
 enum ion_heap_ids {
 	INVALID_HEAP_ID = -1,
-	/* In a system with the "Mini Ion Upgrade" (such as this one)
-	 * the heap_mask and caching flag end up sharing a spot in
-	 * ion_allocation_data.flags. We should make sure to never use
-	 * the 0th bit for a heap because that's where the caching bit
-	 * ends up.
-	 */
-	ION_BOGUS_HEAP_DO_NOT_USE = 0,
 	ION_CP_MM_HEAP_ID = 8,
 	ION_CP_MFC_HEAP_ID = 12,
 	ION_CP_WB_HEAP_ID = 16, /* 8660 only */
 	ION_CAMERA_HEAP_ID = 20, /* 8660 only */
 	ION_SF_HEAP_ID = 24,
 	ION_IOMMU_HEAP_ID = 25,
-	ION_QSECOM_HEAP_ID = 26,
-	ION_AUDIO_HEAP_BL_ID = 27,
+	ION_QSECOM_HEAP_ID = 27,
 	ION_AUDIO_HEAP_ID = 28,
 
 	ION_MM_FIRMWARE_HEAP_ID = 29,
@@ -125,7 +105,6 @@ enum cp_mem_usage {
 
 #define ION_VMALLOC_HEAP_NAME	"vmalloc"
 #define ION_AUDIO_HEAP_NAME	"audio"
-#define ION_AUDIO_BL_HEAP_NAME	"bl_mem_audio"
 #define ION_SF_HEAP_NAME	"sf"
 #define ION_MM_HEAP_NAME	"mm"
 #define ION_CAMERA_HEAP_NAME	"camera_preview"
@@ -178,7 +157,6 @@ struct ion_buffer;
  * @memory_type:Memory type used for the heap
  * @has_outer_cache:    set to 1 if outer cache is used, 0 otherwise.
  * @extra_data:	Extra data specific to each heap type
- * @priv:	heap private data
  */
 struct ion_platform_heap {
 	enum ion_heap_type type;
@@ -189,7 +167,6 @@ struct ion_platform_heap {
 	enum ion_memory_types memory_type;
 	unsigned int has_outer_cache;
 	void *extra_data;
-	void *priv;
 };
 
 /**
@@ -225,7 +202,6 @@ struct ion_cp_heap_pdata {
 	size_t secure_size; /* Size used for securing heap when heap is shared*/
 	int reusable;
 	int mem_is_fmem;
-	int is_cma;
 	enum ion_fixed_position fixed_position;
 	int iommu_map_all;
 	int iommu_2x_map_domain;
@@ -278,7 +254,7 @@ struct ion_platform_data {
 	int (*request_region)(void *);
 	int (*release_region)(void *);
 	void *(*setup_region)(void);
-	struct ion_platform_heap *heaps;
+	struct ion_platform_heap heaps[];
 };
 
 #ifdef CONFIG_ION
@@ -728,14 +704,6 @@ static inline int msm_ion_do_cache_op(struct ion_client *client,
 struct ion_allocation_data {
 	size_t len;
 	size_t align;
-        unsigned int heap_mask;
-	unsigned int flags;
-	struct ion_handle *handle;
-};
-
-struct ion_allocation_data_compat {
-	size_t len;
-	size_t align;
 	unsigned int flags;
 	struct ion_handle *handle;
 };
@@ -821,9 +789,6 @@ struct ion_flag_data {
 #define ION_IOC_ALLOC		_IOWR(ION_IOC_MAGIC, 0, \
 				      struct ion_allocation_data)
 
-#define ION_IOC_ALLOC_COMPAT _IOWR(ION_IOC_MAGIC, 0, \
-				      struct ion_allocation_data_compat)
-
 /**
  * DOC: ION_IOC_FREE - free memory
  *
@@ -859,9 +824,7 @@ struct ion_flag_data {
  * descriptor obtained from ION_IOC_SHARE and returns the struct with the handle
  * filed set to the corresponding opaque handle.
  */
-#define ION_IOC_IMPORT    _IOWR(ION_IOC_MAGIC, 5, struct ion_fd_data)
-
-#define ION_IOC_IMPORT_COMPAT	_IOWR(ION_IOC_MAGIC, 5, int)
+#define ION_IOC_IMPORT		_IOWR(ION_IOC_MAGIC, 5, int)
 
 /**
  * DOC: ION_IOC_CUSTOM - call architecture specific ion ioctl
@@ -877,32 +840,22 @@ struct ion_flag_data {
  *
  * Clean the caches of the handle specified.
  */
-#define ION_IOC_CLEAN_CACHES  _IOWR(ION_IOC_MAGIC, 20, \
+#define ION_IOC_CLEAN_CACHES	_IOWR(ION_IOC_MAGIC, 7, \
 						struct ion_flush_data)
-#define ION_IOC_CLEAN_CACHES_COMPAT	_IOWR(ION_IOC_MAGIC, 7, \
-						struct ion_flush_data)
-
 /**
  * DOC: ION_MSM_IOC_INV_CACHES - invalidate the caches
  *
  * Invalidate the caches of the handle specified.
  */
-#define ION_IOC_INV_CACHES  _IOWR(ION_IOC_MAGIC, 21, \
+#define ION_IOC_INV_CACHES	_IOWR(ION_IOC_MAGIC, 8, \
 						struct ion_flush_data)
-
-#define ION_IOC_INV_CACHES_COMPAT	_IOWR(ION_IOC_MAGIC, 8, \
-					    struct ion_flush_data)
-
 /**
  * DOC: ION_MSM_IOC_CLEAN_CACHES - clean and invalidate the caches
  *
  * Clean and invalidate the caches of the handle specified.
  */
-#define ION_IOC_CLEAN_INV_CACHES  _IOWR(ION_IOC_MAGIC, 22, \
+#define ION_IOC_CLEAN_INV_CACHES	_IOWR(ION_IOC_MAGIC, 9, \
 						struct ion_flush_data)
-
-#define ION_IOC_CLEAN_INV_CACHES_COMPAT	_IOWR(ION_IOC_MAGIC, 9, \
-					    struct ion_flush_data)
 
 /**
  * DOC: ION_IOC_GET_FLAGS - get the flags of the handle
@@ -910,18 +863,6 @@ struct ion_flag_data {
  * Gets the flags of the current handle which indicate cachability,
  * secure state etc.
  */
-#define ION_IOC_GET_FLAGS    _IOWR(ION_IOC_MAGIC, 23, \
+#define ION_IOC_GET_FLAGS		_IOWR(ION_IOC_MAGIC, 10, \
 						struct ion_flag_data)
-
-#define ION_IOC_GET_FLAGS_COMPAT _IOWR(ION_IOC_MAGIC, 10, \
-              struct ion_flag_data)
-
-
-/**
- * DOC: ION_IOC_SYNC - BOGUS
- *
- * NOT SUPPORTED
- */
-#define ION_IOC_SYNC    _IOWR(ION_IOC_MAGIC, 42, \
-            struct ion_flag_data)
 #endif /* _LINUX_ION_H */
