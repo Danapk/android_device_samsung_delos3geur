@@ -83,7 +83,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.default \
     power.golfish \
-    libsurfaceflinger_client
+    power.msm7x27a
 	
 # Lights HAL
 PRODUCT_PACKAGES += \
@@ -95,7 +95,8 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27a	
+    camera.msm7x27a \
+    libsurfaceflinger_client	
 
 # Wi-Fi
 PRODUCTS_PACKAGES += \
