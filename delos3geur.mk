@@ -87,7 +87,8 @@ PRODUCT_PACKAGES += \
 	
 # Lights HAL
 PRODUCT_PACKAGES += \
-    lights.msm7x27a
+    lights.msm7x27a \
+    lights.default
 	
 # GPS
 PRODUCT_PACKAGES += \
