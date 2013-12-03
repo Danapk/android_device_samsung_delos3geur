@@ -80,6 +80,7 @@ BOARD_CACHE_FILESYSTEM := ext4
 BOARD_CACHE_FILESYSTEM_OPTIONS := rw
 
 # Audio
+TARGET_QCOM_AUDIO_VARIANT := caf
 BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_QCOM_AUDIO_RESETALL := true
 BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
@@ -101,6 +102,8 @@ WIFI_DRIVER_MODULE_PATH := /system/lib/modules/ath6kl_sdio.ko
 WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
 
 # Adreno configuration
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+TARGET_QCOM_MEDIA_VARIANT := legacy
 BOARD_EGL_CFG := device/samsung/delos3geur/configuration/egl.cfg
 USE_OPENGL_RENDERER := true
 ENABLE_WEBGL := true
@@ -112,6 +115,9 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/delos3geur/bluetooth
 
 # RIL
+BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
+BOARD_RIL_CLASS := ../../../device/samsung/delos3geur/ril/
+BOARD_USES_LEGACY_RIL := true
 BOARD_USES_LIBSECRIL_STUB := true
 
 # Recovery
@@ -126,3 +132,10 @@ BOARD_EGL_NEEDS_LEGACY_FB := true
 
 # TWRP specific build flags
 DEVICE_RESOLUTION := 480x800
+
+# Power HAL
+TARGET_PROVIDES_POWERHAL := true
+
+# OTA Assert
+TARGET_BOOTLOADER_BOARD_NAME := delos3geur
+TARGET_OTA_ASSERT_DEVICE := delos3geur,GT-I8552
