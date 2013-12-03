@@ -16,6 +16,7 @@
 # inherit from the proprietary version
 -include vendor/samsung/delos3geur/BoardConfigVendor.mk
 
+USE_CAMERA_STUB := true
 BOARD_VENDOR := samsung
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
@@ -123,7 +124,8 @@ BOARD_USES_LIBSECRIL_STUB := true
 # Recovery
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/fstab.delos3geur
+RECOVERY_FSTAB_VERSION := 2
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/recovery/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
