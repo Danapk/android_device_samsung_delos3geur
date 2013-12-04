@@ -105,6 +105,8 @@ WIFI_DRIVER_MODULE_PATH := /system/lib/modules/ath6kl_sdio.ko
 WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
 
 # Adreno configuration
+TARGET_USES_QCOM_BSP := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_QCOM_MEDIA_VARIANT := legacy
 BOARD_EGL_CFG := device/samsung/delos3geur/configuration/egl.cfg
