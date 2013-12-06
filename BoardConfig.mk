@@ -67,7 +67,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01300000
 BOARD_KERNEL_PAGESIZE := 4096
 
 # Try to build the kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_delos3geur_defconfig
+TARGET_KERNEL_CONFIG := cm_delos3geur_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/delos3geur
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
@@ -140,7 +140,8 @@ BOARD_USES_LIBSECRIL_STUB := true
 # Recovery
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/fstab.delos3geur
+RECOVERY_FSTAB_VERSION := 2
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/recovery/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
