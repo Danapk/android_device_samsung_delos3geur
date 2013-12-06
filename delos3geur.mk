@@ -34,6 +34,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    
+# Ramdisk
+PRODUCT_COPY_FILES += \
+    device/samsung/delos3geur/recovery/init.qcom.rc:root/init.qcom.rc \
+    device/samsung/delos3geur/recovery/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    device/samsung/delos3geur/recovery/init.target.rc:root/init.target.rc \
+    device/samsung/delos3geur/recovery/ueventd.qcom.rc:root/ueventd.qcom.rc
+    
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
