@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (c) 2012 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +20,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define LOG_TAG "LGE PowerHAL"
+#define LOG_TAG "CM PowerHAL"
 #include <utils/Log.h>
 
 #include <hardware/hardware.h>
@@ -28,14 +29,12 @@
 #define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 #define BOOSTPULSE_ONDEMAND "/sys/devices/system/cpu/cpufreq/ondemand/boostpulse"
 #define BOOSTPULSE_INTERACTIVE "/sys/devices/system/cpu/cpufreq/interactive/boostpulse"
-#define BOOSTPULSE_SMARTASS2 "/sys/devices/system/cpu/cpufreq/smartass/boost_pulse"
-#define BOOSTPULSE_SMARTASSH3 "/sys/devices/system/cpu/cpufreq/smartassH3/boost_pulse"
-#define SAMPLING_RATE_SCREEN_ON "50000"
+#define SAMPLING_RATE_SCREEN_ON "75000"
 #define SAMPLING_RATE_SCREEN_OFF "500000"
 #define TIMER_RATE_SCREEN_ON "30000"
 #define TIMER_RATE_SCREEN_OFF "500000"
 
-struct lge_power_module {
+struct cm_power_module {
     struct power_module base;
     pthread_mutex_t lock;
     int boostpulse_fd;
@@ -110,7 +109,7 @@ static int get_scaling_governor() {
     return 0;
 }
 
-static void lge_power_set_interactive(struct power_module *module, int on)
+static void cm_power_set_interactive(struct power_module *module, int on)
 {
     if (strncmp(governor, "ondemand", 8) == 0)
         sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/sampling_rate",
@@ -123,7 +122,7 @@ static void lge_power_set_interactive(struct power_module *module, int on)
 
 static void configure_governor()
 {
-    lge_power_set_interactive(NULL, 1);
+    cm_power_set_interactive(NULL, 1);
 
     if (strncmp(governor, "ondemand", 8) == 0) {
         sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/up_threshold", "90");
@@ -134,50 +133,46 @@ static void configure_governor()
     } else if (strncmp(governor, "interactive", 11) == 0) {
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time", "90000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/io_is_busy", "1");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq", "1134000");
+        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq", "1024000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay", "30000");
     }
 }
 
-static int boostpulse_open(struct lge_power_module *lge)
+static int boostpulse_open(struct cm_power_module *cm)
 {
     char buf[80];
 
-    pthread_mutex_lock(&lge->lock);
+    pthread_mutex_lock(&cm->lock);
 
-    if (lge->boostpulse_fd < 0) {
+    if (cm->boostpulse_fd < 0) {
         if (get_scaling_governor() < 0) {
             ALOGE("Can't read scaling governor.");
-            lge->boostpulse_warned = 1;
+            cm->boostpulse_warned = 1;
         } else {
             if (strncmp(governor, "ondemand", 8) == 0)
-                lge->boostpulse_fd = open(BOOSTPULSE_ONDEMAND, O_WRONLY);
+                cm->boostpulse_fd = open(BOOSTPULSE_ONDEMAND, O_WRONLY);
             else if (strncmp(governor, "interactive", 11) == 0)
-                lge->boostpulse_fd = open(BOOSTPULSE_INTERACTIVE, O_WRONLY);
-            else if (strncmp(governor, "smartassV2", 10) == 0)
-                lge->boostpulse_fd = open(BOOSTPULSE_SMARTASS2, O_WRONLY);
-            else if (strncmp(governor, "SmartassH3", 10) == 0)
-                lge->boostpulse_fd = open(BOOSTPULSE_SMARTASSH3, O_WRONLY);
+                cm->boostpulse_fd = open(BOOSTPULSE_INTERACTIVE, O_WRONLY);
 
-            if (lge->boostpulse_fd < 0 && !lge->boostpulse_warned) {
+            if (cm->boostpulse_fd < 0 && !cm->boostpulse_warned) {
                 strerror_r(errno, buf, sizeof(buf));
                 ALOGV("Error opening boostpulse: %s\n", buf);
-                lge->boostpulse_warned = 1;
-            } else if (lge->boostpulse_fd > 0) {
+                cm->boostpulse_warned = 1;
+            } else if (cm->boostpulse_fd > 0) {
                 configure_governor();
                 ALOGD("Opened %s boostpulse interface", governor);
             }
         }
     }
 
-    pthread_mutex_unlock(&lge->lock);
-    return lge->boostpulse_fd;
+    pthread_mutex_unlock(&cm->lock);
+    return cm->boostpulse_fd;
 }
 
-static void lge_power_hint(struct power_module *module, power_hint_t hint,
+static void cm_power_hint(struct power_module *module, power_hint_t hint,
                             void *data)
 {
-    struct lge_power_module *lge = (struct lge_power_module *) module;
+    struct cm_power_module *cm = (struct cm_power_module *) module;
     char buf[80];
     int len;
     int duration = 1;
@@ -185,22 +180,22 @@ static void lge_power_hint(struct power_module *module, power_hint_t hint,
     switch (hint) {
     case POWER_HINT_INTERACTION:
     case POWER_HINT_CPU_BOOST:
-        if (boostpulse_open(lge) >= 0) {
+        if (boostpulse_open(cm) >= 0) {
             if (data != NULL)
                 duration = (int) data;
 
             snprintf(buf, sizeof(buf), "%d", duration);
-            len = write(lge->boostpulse_fd, buf, strlen(buf));
+            len = write(cm->boostpulse_fd, buf, strlen(buf));
 
             if (len < 0) {
                 strerror_r(errno, buf, sizeof(buf));
 	            ALOGE("Error writing to boostpulse: %s\n", buf);
 
-                pthread_mutex_lock(&lge->lock);
-                close(lge->boostpulse_fd);
-                lge->boostpulse_fd = -1;
-                lge->boostpulse_warned = 0;
-                pthread_mutex_unlock(&lge->lock);
+                pthread_mutex_lock(&cm->lock);
+                close(cm->boostpulse_fd);
+                cm->boostpulse_fd = -1;
+                cm->boostpulse_warned = 0;
+                pthread_mutex_unlock(&cm->lock);
             }
         }
         break;
@@ -213,7 +208,7 @@ static void lge_power_hint(struct power_module *module, power_hint_t hint,
     }
 }
 
-static void lge_power_init(struct power_module *module)
+static void cm_power_init(struct power_module *module)
 {
     get_scaling_governor();
     configure_governor();
@@ -223,21 +218,20 @@ static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
 };
 
-struct lge_power_module HAL_MODULE_INFO_SYM = {
+struct cm_power_module HAL_MODULE_INFO_SYM = {
     base: {
         common: {
             tag: HARDWARE_MODULE_TAG,
-            version_major: 1,
-            version_minor: 0,
+            module_api_version: POWER_MODULE_API_VERSION_0_2,
+            hal_api_version: HARDWARE_HAL_API_VERSION,
             id: POWER_HARDWARE_MODULE_ID,
-            name: "LGE-MSM7x27a Power HAL",
+            name: "CM Power HAL",
             author: "The CyanogenMod Project",
             methods: &power_module_methods,
         },
-
-       init: lge_power_init,
-       setInteractive: lge_power_set_interactive,
-       powerHint: lge_power_hint,
+       init: cm_power_init,
+       setInteractive: cm_power_set_interactive,
+       powerHint: cm_power_hint,
     },
 
     lock: PTHREAD_MUTEX_INITIALIZER,
