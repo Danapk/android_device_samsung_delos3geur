@@ -90,8 +90,6 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.default \
-    power.golfish \
     power.msm7x27a
 	
 # Lights HAL
@@ -101,7 +99,7 @@ PRODUCT_PACKAGES += \
 	
 # GPS
 PRODUCT_PACKAGES += \
-    gps.default
+    gps.msm7x27a
     
 # Camera
 PRODUCT_PACKAGES += \
