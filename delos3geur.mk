@@ -131,3 +131,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=50 \
     persist.sys.purgeable_assets=1 \
     ro.telephony.call_ring.delay=3000
+    
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.hw=1
