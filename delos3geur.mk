@@ -59,7 +59,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libI420colorconvert \
     libdashplayer \
-    qcmediaplayer
+    qcmediaplayer \
+    libc2dcolorconvert
 
 # HW
 PRODUCT_PACKAGES += \
@@ -104,8 +105,7 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27a \
-    libsurfaceflinger_client	
+    camera.msm7x27a	
 
 # Wi-Fi
 PRODUCTS_PACKAGES += \
