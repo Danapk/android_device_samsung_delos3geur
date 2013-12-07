@@ -1,5 +1,5 @@
-Copyright 2013 - The CyanCom (CyanogenMod) Project
+Copyright 2013 - The CyanogenMod Project
 
-Device configuration for Samsung Galaxy Grand Quattro (GT-I8552)
+Common device configuration for Samsung Galaxy Grand Quattro (GT-I8552)
 
 WORK IN PROGRESS. WILL EAT YOUR CAT.
