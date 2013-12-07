@@ -65,7 +65,6 @@ PRODUCT_PACKAGES += \
 # HW
 PRODUCT_PACKAGES += \
     libgenlock \
-    liboverlay \
     gralloc.msm7627a \
     gralloc.default \
     hwcomposer.msm7627a \
@@ -90,6 +89,8 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
+    power.default \
+    power.goldfish \
     power.msm7627a
 	
 # Lights HAL
