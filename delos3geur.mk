@@ -92,8 +92,7 @@ PRODUCT_PACKAGES += \
 # Power HAL
 PRODUCT_PACKAGES += \
     power.default \
-    power.goldfish \
-    power.msm7627a
+    power.goldfish
 	
 # Lights HAL
 PRODUCT_PACKAGES += \
