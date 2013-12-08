@@ -66,6 +66,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
+    libmemalloc \
     gralloc.msm7627a \
     gralloc.default \
     hwcomposer.msm7627a \
