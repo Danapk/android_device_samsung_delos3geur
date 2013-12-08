@@ -44,9 +44,9 @@ PRODUCT_COPY_FILES += \
     
 # Audio
 PRODUCT_PACKAGES += \
-    audio.primary.msm7627a \
+    audio.primary.msm7x27a \
     audio.primary.default \
-    audio_policy.msm7627a \
+    audio_policy.msm7x27a \
     audio_policy.default \
     audio.a2dp.default \
     audio_policy.conf \
@@ -68,8 +68,8 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libmemalloc \
     gralloc.msm7x27a \
-    hwcomposer.msm7627a \
-    copybit.msm7627a \
+    hwcomposer.msm7x27a \
+    copybit.msm7x27a \
     libtilerenderer \
     libqdMetaData
 
@@ -90,21 +90,21 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.default \
-    power.goldfish
+    power.msm7x27a \
+    power.golfish
 	
 # Lights HAL
 PRODUCT_PACKAGES += \
-    lights.msm7627a \
+    lights.msm7x27a \
     lights.default
 	
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm7627a
+    gps.msm7x27a
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7627a	
+    camera.msm7x27a	
 
 # Wi-Fi
 PRODUCTS_PACKAGES += \
