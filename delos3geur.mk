@@ -67,8 +67,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     libmemalloc \
-    gralloc.msm7627a \
-    gralloc.default \
+    gralloc.msm7x27a \
     hwcomposer.msm7627a \
     copybit.msm7627a \
     libtilerenderer \
