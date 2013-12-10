@@ -1,4 +1,5 @@
+
 LOCAL_PATH := $(call my-dir)
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8860)
-include $(call all-makefiles-under,$(LOCAL_PATH))
+ifeq ($(TARGET_DEVICE),delos3geur)
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
