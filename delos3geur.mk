@@ -90,13 +90,11 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.msm7x27a \
-    power.golfish
+    power.msm7x27a
 	
 # Lights HAL
 PRODUCT_PACKAGES += \
-    lights.msm7x27a \
-    lights.default
+    lights.msm7x27a
 	
 # GPS
 PRODUCT_PACKAGES += \
