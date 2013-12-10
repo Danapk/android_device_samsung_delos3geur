@@ -15,7 +15,7 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 PRODUCT_NAME := cm_delos3geur
 PRODUCT_DEVICE := delos3geur
 PRODUCT_BRAND := Samsung
-PRODUCT_MODEL := Galaxy Grand Quattro
+PRODUCT_MODEL := GT-I8552
 PRODUCT_MANUFACTURER := Samsung
 PRODUCT_RELEASE_NAME := delos3geur
 
