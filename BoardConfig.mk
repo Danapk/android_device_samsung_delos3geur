@@ -66,6 +66,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 # Try to build the kernel
 TARGET_KERNEL_CONFIG := cm_delos3geur_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/delos3geur
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 
 # Partition
 BOARD_BOOTIMAGE_PARTITION_SIZE := 12582912
