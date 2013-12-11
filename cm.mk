@@ -16,7 +16,7 @@ PRODUCT_NAME := cm_delos3geur
 PRODUCT_DEVICE := delos3geur
 PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := GT-I8552
-PRODUCT_MANUFACTURER := Samsung
+PRODUCT_MANUFACTURER := SAMSUNG
 PRODUCT_RELEASE_NAME := delos3geur
 
 #Set build fingerprint / ID / Product Name ect.
