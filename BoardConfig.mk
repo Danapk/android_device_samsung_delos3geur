@@ -163,3 +163,6 @@ JS_ENGINE := v8
 TARGET_NO_HW_VSYNC := true
 ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
+
+# Hardware Class
+BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
