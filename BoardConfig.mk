@@ -119,7 +119,6 @@ BOARD_EGL_CFG := device/samsung/delos3geur/configuration/egl.cfg
 USE_OPENGL_RENDERER := true
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
-TARGET_USES_C2D_COMPOSITION := true
 BOARD_USE_QCOM_LLVM_CLANG_RS := true
 
 # BT

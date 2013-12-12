@@ -59,8 +59,7 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libI420colorconvert \
     libdashplayer \
-    qcmediaplayer \
-    libc2dcolorconvert
+    qcmediaplayer
 
 # HW
 PRODUCT_PACKAGES += \
