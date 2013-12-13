@@ -132,3 +132,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1
+    
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.debuggable=1 \
+    persist.service.adb.enable=1
