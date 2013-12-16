@@ -43,6 +43,7 @@ lib/egl/libGLESv1_CM_adreno200.so
 lib/egl/libEGL_adreno200.so
 lib/egl/eglsubAndroid.so
 lib/egl/libq3dtools_adreno200.so
+lib/libaudiopolicy_sec.so
 lib/libOpenVG.so
 lib/libgsl.so
 lib/libsc-a2xx.so
