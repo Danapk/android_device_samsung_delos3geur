@@ -40,6 +40,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/delos3geur/recovery/init.qcom.rc:root/init.qcom.rc \
     device/samsung/delos3geur/recovery/init.qcom.usb.rc:root/init.qcom.usb.rc \
     device/samsung/delos3geur/recovery/init.target.rc:root/init.target.rc \
+    device/samsung/delos3geur/recovery/lpm.rc:root/lpm.rc \
     device/samsung/delos3geur/recovery/ueventd.qcom.rc:root/ueventd.qcom.rc
     
 # Audio
