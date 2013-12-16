@@ -162,7 +162,3 @@ ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
 
 ## Hardware Class
 BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
-
-## Qualcomm BSP
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
