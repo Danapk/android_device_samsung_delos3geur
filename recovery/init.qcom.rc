@@ -42,6 +42,7 @@ on early-init
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0000 system system
     mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/usbdisk 0000 system system
 
     export SECONDARY_STORAGE /storage/sdcard1
     export EXTERNAL_STORAGE /storage/sdcard0
@@ -50,6 +51,8 @@ on early-init
     symlink /storage/sdcard1 /sdcard
     symlink /storage/sdcard0 /mnt/internal_sd
     symlink /storage/sdcard0 /internal_sd
+    symlink /storage/usbdisk /usbdisk
+    symlink /storage/usbdisk /mnt/usbdisk
 
 on boot
     exec system/bin/btnvtool -O

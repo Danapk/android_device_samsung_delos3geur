@@ -133,7 +133,7 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/recovery/fstab.delos3geur
 RECOVERY_FSTAB_VERSION := 2
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/recovery/graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # Legacy FB
