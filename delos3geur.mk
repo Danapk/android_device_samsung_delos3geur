@@ -41,7 +41,7 @@ PRODUCT_COPY_FILES += \
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/samsung/delos3geur/postboot,syatem/etc)
+    $(call find-copy-subdir-files,*,device/samsung/delos3geur/postboot,system/etc)
     
 # Audio
 PRODUCT_PACKAGES += \
