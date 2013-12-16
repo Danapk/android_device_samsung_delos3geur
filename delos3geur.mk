@@ -37,13 +37,35 @@ PRODUCT_COPY_FILES += \
     
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/samsung/delos3geur/recovery,root)
+    device/samsung/delos3geur/recovery/fstab.delos3geur:root/fstab.delos3geur \
+    device/samsung/delos3geur/recovery/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    device/samsung/delos3geur/recovery/init.qcom.class_main.sh:root/nit.qcom.class_main.sh \
+    device/samsung/delos3geur/recovery/init.qcom.rc:root/init.qcom.rc \
+    device/samsung/delos3geur/recovery/init.qcom.ril.path.sh:root/init.qcom.ril.path.sh \
+    device/samsung/delos3geur/recovery/init.qcom.sh:root/init.qcom.sh \
+    device/samsung/delos3geur/recovery/init.qcom.unicorn-dpi.sh:root/init.qcom.unicorn-dpi.sh \
+    device/samsung/delos3geur/recovery/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    device/samsung/delos3geur/recovery/init.qcom.usb.sh:root/init.qcom.usb.sh \
+    device/samsung/delos3geur/recovery/init.target.rc:root/init.target.rc \
+    device/samsung/delos3geur/recovery/lpm.rc:root/lpm.rc \
+    device/samsung/delos3geur/recovery/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/samsung/delos3geur/postboot,system/etc)
+    device/samsung/delos3geur/postboot/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
+    device/samsung/delos3geur/postboot/init.qcom.8x25.sh:system/etc/init.qcom.8x25.sh \
+    device/samsung/delos3geur/postboot/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    device/samsung/delos3geur/postboot/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    device/samsung/delos3geur/postboot/init.qcom.composition_type.sh:system/etc/init.qcom.composition_type.sh \
+    device/samsung/delos3geur/postboot/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
+    device/samsung/delos3geur/postboot/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+    device/samsung/delos3geur/postboot/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    device/samsung/delos3geur/postboot/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
+    device/samsung/delos3geur/postboot/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
+    device/samsung/delos3geur/postboot/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
+    device/samsung/delos3geur/postboot/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
     
-# Audio
+## Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
     audio.primary.default \
@@ -53,7 +75,7 @@ PRODUCT_PACKAGES += \
     audio_policy.conf \
     libaudioutils
   
-# Video decoding
+## Video decoding
 PRODUCT_PACKAGES += \
     libmm-omxcore \
     libstagefrighthw \
@@ -62,7 +84,7 @@ PRODUCT_PACKAGES += \
     libdashplayer \
     qcmediaplayer
 
-# HW
+## HW
 PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
@@ -74,12 +96,12 @@ PRODUCT_PACKAGES += \
     libqdMetaData
 
 
-# Bluetooth
+## Bluetooth
 PRODUCT_PACKAGES += \
     hciconfig \
     hcitool
 
-# Live Wallpapers
+## Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
@@ -88,35 +110,37 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-# Power HAL
+## Power HAL
 PRODUCT_PACKAGES += \
     power.msm7x27a
 	
-# Lights HAL
+## Lights HAL
 PRODUCT_PACKAGES += \
     lights.msm7x27a
 	
-# GPS
+## GPS
 PRODUCT_PACKAGES += \
     gps.msm7x27a
     
-# Camera
+## Camera
 PRODUCT_PACKAGES += \
     camera.msm7x27a	
 
-# Wi-Fi
+## Wi-Fi
 PRODUCTS_PACKAGES += \
     ath6kl_sdio
 
-# Other
+## Other
 PRODUCT_PACKAGES += \
     dexpreopt \
     librpc \
     com.android.future.usb.accessory \
     libnetcmdiface
 
-# Include non-opensource parts
+## Include non-opensource parts
 $(call inherit-product, vendor/samsung/delos3geur/delos3geur-vendor.mk)
+
+## Dalvik Heap
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -130,9 +154,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=50 \
     persist.sys.purgeable_assets=1 \
     ro.telephony.call_ring.delay=3000
-    
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.hw=1
     
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
