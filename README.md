@@ -1,4 +1,4 @@
-                      Unofficial CyanogenMod Project
+Unofficial CyanogenMod Project
 
 Device configuration for Samsung Galaxy Grand Quattro (GT-I8552)
 
