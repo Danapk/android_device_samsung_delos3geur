@@ -128,7 +128,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/delos3geur/bluetoo
 ## RIL
 BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
 BOARD_USES_LIBSECRIL_STUB := true
-BOARD_RIL_CLASS := ../../../device/samsung/delos3geur/ril/
 
 ## Recovery
 BOARD_HAS_NO_MISC_PARTITION := true
