@@ -35,7 +35,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
     
-# Ramdisk
+## Ramdisk
 PRODUCT_COPY_FILES += \
     device/samsung/delos3geur/recovery/fstab.delos3geur:root/fstab.delos3geur \
     device/samsung/delos3geur/recovery/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
@@ -50,7 +50,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/delos3geur/recovery/lpm.rc:root/lpm.rc \
     device/samsung/delos3geur/recovery/ueventd.qcom.rc:root/ueventd.qcom.rc
 
-# Recovery
+## Recovery
 PRODUCT_COPY_FILES += \
     device/samsung/delos3geur/postboot/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
     device/samsung/delos3geur/postboot/init.qcom.8x25.sh:system/etc/init.qcom.8x25.sh \
@@ -86,9 +86,6 @@ PRODUCT_PACKAGES += \
 
 ## HW
 PRODUCT_PACKAGES += \
-    libgenlock \
-    liboverlay \
-    libmemalloc \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     copybit.msm7x27a \

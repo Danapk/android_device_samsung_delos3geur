@@ -49,8 +49,6 @@ ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 ## QCOM enhancements
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_ION := true
-TARGET_USES_GENLOCK := true
-TARGET_USES_OVERLAY := true
 
 ## Target information
 TARGET_NO_BOOTLOADER := true
