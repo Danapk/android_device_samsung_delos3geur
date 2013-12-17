@@ -17,7 +17,7 @@ LOCAL_PATH := device/samsung/delos3geur
 DEVICE_PACKAGE_OVERLAYS := device/samsung/delos3geur/overlay
 
 
-# Hardware properties 
+## Hardware properties 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
@@ -86,6 +86,9 @@ PRODUCT_PACKAGES += \
 
 ## HW
 PRODUCT_PACKAGES += \
+    liboverlay \
+    libgenlock \
+    libmemalloc \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     copybit.msm7x27a \
