@@ -88,7 +88,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     liboverlay \
     libgenlock \
-    libmemalloc \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     copybit.msm7x27a \
@@ -155,7 +154,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.purgeable_assets=1 \
     ro.telephony.call_ring.delay=3000
     
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.secure=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
