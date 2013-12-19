@@ -171,6 +171,3 @@ ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
 
 ## Hardware Class
 BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
-
-## Add QC Video Enhancements flag
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
