@@ -156,7 +156,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.delay=3000
     
 ## Set usb type
-PRODUCT_PROPERTIES_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage,adb
     
 ## Debugging
