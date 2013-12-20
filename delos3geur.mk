@@ -157,8 +157,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     
 ## Set usb type
 PRODUCT_PROPERTIES_OVERRIDES += \
-    persist.sys.usb.config=mass_storage,adb \
-    persist.service.adb.enable=1
+    persist.sys.usb.config=mass_storage,adb
     
 ## Debugging
 PRODUCT_PROPERTY_OVERRIDES += \
