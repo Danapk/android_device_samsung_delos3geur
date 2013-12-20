@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     liboverlay \
     libgenlock \
+    libmemalloc \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     copybit.msm7x27a \
