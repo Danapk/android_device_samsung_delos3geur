@@ -154,10 +154,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=50 \
     persist.sys.purgeable_assets=1 \
     ro.telephony.call_ring.delay=3000
-    
-## Set usb type
+
+## Misc    
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mass_storage,adb
+    ro.com.google.locationfeatures=1 \
+    ro.com.google.networklocation=1 \
+    ro.com.google.gmsversion=4.0_r2 \
+    dalvik.vm.lockprof.threshold=500 \
+    ro.setupwizard.enable_bypass=1 \
+    ro.telephony.call_ring.multiple=false \
+    persist.sys.use_dithering=1 \
+    persist.sys.usb.config=mass_storage,adb \
+    ro.vold.umsdirtyratio=20
     
 ## Debugging
 PRODUCT_PROPERTY_OVERRIDES += \
