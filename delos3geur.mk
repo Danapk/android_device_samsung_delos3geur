@@ -147,6 +147,7 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+## Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     ro.telephony.call_ring.multiple=false \
@@ -154,9 +155,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.purgeable_assets=1 \
     ro.telephony.call_ring.delay=3000
     
+## Set usb type
+PRODUCT_PROPERTIES_OVERRIDES += \
+    persist.sys.usb.config=mass_storage,adb \
+    persist.service.adb.enable=1
+    
+## Debugging
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.secure=0
-
-PRODUCT_PROPERTY_OVERRIDES += \
+    ro.secure=0 \
     ro.debuggable=1 \
+    ro.adb.secure=0 \
     persist.service.adb.enable=1
