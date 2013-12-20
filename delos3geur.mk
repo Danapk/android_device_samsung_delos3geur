@@ -164,12 +164,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     ro.telephony.call_ring.multiple=false \
     persist.sys.use_dithering=1 \
-    persist.sys.usb.config=mass_storage,adb \
     ro.vold.umsdirtyratio=20
-    
-## Debugging
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.secure=0 \
-    ro.debuggable=1 \
-    ro.adb.secure=0 \
-    persist.service.adb.enable=1
