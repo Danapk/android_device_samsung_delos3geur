@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 LOCAL_PATH := device/samsung/delos3geur
-DEVICE_PACKAGE_OVERLAYS := device/samsung/delos3geur/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 
 ## Hardware properties 
@@ -37,33 +37,33 @@ PRODUCT_COPY_FILES += \
     
 ## Ramdisk
 PRODUCT_COPY_FILES += \
-    device/samsung/delos3geur/recovery/fstab.delos3geur:root/fstab.delos3geur \
-    device/samsung/delos3geur/recovery/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-    device/samsung/delos3geur/recovery/init.qcom.class_main.sh:root/nit.qcom.class_main.sh \
-    device/samsung/delos3geur/recovery/init.qcom.rc:root/init.qcom.rc \
-    device/samsung/delos3geur/recovery/init.qcom.ril.path.sh:root/init.qcom.ril.path.sh \
-    device/samsung/delos3geur/recovery/init.qcom.sh:root/init.qcom.sh \
-    device/samsung/delos3geur/recovery/init.qcom.unicorn-dpi.sh:root/init.qcom.unicorn-dpi.sh \
-    device/samsung/delos3geur/recovery/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    device/samsung/delos3geur/recovery/init.qcom.usb.sh:root/init.qcom.usb.sh \
-    device/samsung/delos3geur/recovery/init.target.rc:root/init.target.rc \
-    device/samsung/delos3geur/recovery/lpm.rc:root/lpm.rc \
-    device/samsung/delos3geur/recovery/ueventd.qcom.rc:root/ueventd.qcom.rc
+    $(LOCAL_PATH)/ramdisk/fstab.delos3geur:root/fstab.delos3geur \
+    $(LOCAL_PATH)/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.class_main.sh:root/nit.qcom.class_main.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/ramdisk/init.qcom.ril.path.sh:root/init.qcom.ril.path.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.unicorn-dpi.sh:root/init.qcom.unicorn-dpi.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    $(LOCAL_PATH)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
+    $(LOCAL_PATH)/ramdisk/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/ramdisk/lpm.rc:root/lpm.rc \
+    $(LOCAL_PATH)/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc
 
-## Recovery
+## Postboot
 PRODUCT_COPY_FILES += \
-    device/samsung/delos3geur/postboot/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
-    device/samsung/delos3geur/postboot/init.qcom.8x25.sh:system/etc/init.qcom.8x25.sh \
-    device/samsung/delos3geur/postboot/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    device/samsung/delos3geur/postboot/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    device/samsung/delos3geur/postboot/init.qcom.composition_type.sh:system/etc/init.qcom.composition_type.sh \
-    device/samsung/delos3geur/postboot/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
-    device/samsung/delos3geur/postboot/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    device/samsung/delos3geur/postboot/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    device/samsung/delos3geur/postboot/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
-    device/samsung/delos3geur/postboot/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
-    device/samsung/delos3geur/postboot/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
-    device/samsung/delos3geur/postboot/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
+    $(LOCAL_PATH)/postboot/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.8x25.sh:system/etc/init.qcom.8x25.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.composition_type.sh:system/etc/init.qcom.composition_type.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
+    $(LOCAL_PATH)/postboot/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
     
 ## Audio
 PRODUCT_PACKAGES += \
