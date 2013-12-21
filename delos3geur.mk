@@ -38,6 +38,8 @@ PRODUCT_COPY_FILES += \
 ## Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/fstab.delos3geur:root/fstab.delos3geur \
+    $(LOCAL_PATH)/ramdisk/init.delos.rc:root/init.delos.rc \
+    $(LOCAL_PATH)/ramdisk/init.delos.usb.rc:root/init.delos.usb.rc \
     $(LOCAL_PATH)/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
     $(LOCAL_PATH)/ramdisk/init.qcom.class_main.sh:root/nit.qcom.class_main.sh \
     $(LOCAL_PATH)/ramdisk/init.qcom.rc:root/init.qcom.rc \
