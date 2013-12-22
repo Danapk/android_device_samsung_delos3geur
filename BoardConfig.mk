@@ -56,7 +56,7 @@ ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 
 ## QCOM enhancements
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_USES_ION := true
+BOARD_USES_QCOM_LIBS := true
 
 ## Target information
 TARGET_NO_BOOTLOADER := true
@@ -117,17 +117,22 @@ WIFI_DRIVER_MODULE_NAME := ath6kl_sdio
 WIFI_DRIVER_MODULE_PATH := /system/lib/modules/ath6kl_sdio.ko
 WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
 
-## Adreno configuration
-TARGET_QCOM_DISPLAY_VARIANT := legacy
-TARGET_QCOM_MEDIA_VARIANT := legacy
-BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-BOARD_EGL_CFG := device/samsung/delos3geur/configuration/egl.cfg
+## Graphics
 USE_OPENGL_RENDERER := true
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true
-BOARD_USE_QCOM_LLVM_CLANG_RS := true
+BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+BOARD_EGL_NEEDS_LEGACY_FB := true
+TARGET_NO_HW_VSYNC := true
+TARGET_QCOM_HDMI_OUT := false
+BOARD_USE_MHEAP_SCREENSHOT := true
+TARGET_USES_C2D_COMPOSITION := true
 BOARD_USE_SKIA_LCDTEXT := true
+
+## ION Support
+TARGET_USES_ION := false
+
+## Media
+TARGET_QCOM_MEDIA_VARIANT := legacy
 
 ## BT
 BOARD_HAVE_BLUETOOTH := true
@@ -144,12 +149,6 @@ TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/ramdisk/fstab.delos3geur
 RECOVERY_FSTAB_VERSION := 2
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-
-## Legacy FB
-BOARD_EGL_NEEDS_LEGACY_FB := true
-
-## TWRP specific build flags
-DEVICE_RESOLUTION := 480x800
 
 ## Power HAL
 TARGET_PROVIDES_POWERHAL := true
@@ -170,3 +169,6 @@ ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
 
 ## Hardware Class
 BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
+
+## TWRP specific build flags
+DEVICE_RESOLUTION := 480x800
