@@ -72,14 +72,6 @@ BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_CONFIG := cm_delos3geur_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/delos3geur
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
-KERNEL_WIFI_MODULES:
-        $(MAKE) -C external/backports-wireless defconfig-ath6kl
-        export CROSS_COMPILE=$(ARM_EABI_TOOLCHAIN)/arm-eabi-; $(MAKE) -C external/backports-wireless KLIB=$(KERNEL_SRC) KLIB_BUILD=$(KERNEL_OUT) ARCH=$(TARGET_ARCH) $(ARM_CROSS_COMPILE)
-        cp `find external/backports-wireless -name *.ko` $(KERNEL_MODULES_OUT)/
-        arm-eabi-strip --strip-debug `find $(KERNEL_MODULES_OUT) -name *.ko`
-        $(MAKE) -C external/backports-wireless clean
-
-TARGET_KERNEL_MODULES := KERNEL_WIFI_MODULES
 
 ## Partition
 BOARD_BOOTIMAGE_PARTITION_SIZE := 12582912
