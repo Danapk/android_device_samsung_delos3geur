@@ -157,11 +157,13 @@ TARGET_PROVIDES_POWERHAL := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 CAMERA_USES_SURFACEFLINGER_CLIENT_STUB := true
 
-## Dalvik
-TARGET_ARCH_LOWMEM := true
+## Add h/w acceleration in browser
+ENABLE_WEBGL := true
 WITH_JIT := true
 ENABLE_JSC_JIT := true
 JS_ENGINE := v8
+HTTP := chrome
+TARGET_FORCE_CPU_UPLOAD := true
 
 ## More optimization
 TARGET_NO_HW_VSYNC := true
