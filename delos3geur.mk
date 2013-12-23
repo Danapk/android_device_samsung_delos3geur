@@ -56,7 +56,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
     
 ## Charger
-PRODUCT_COPY_FILES += 
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/charget:root/charger \
     $(LOCAL_PATH)/rootdir/res/images/battery_0.png:root/res/images/battery_0.png \
     $(LOCAL_PATH)/rootdir/res/images/battery_1.png:root/res/images/battery_1.png \
