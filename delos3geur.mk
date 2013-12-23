@@ -37,6 +37,9 @@ PRODUCT_COPY_FILES += \
     
 ## rootdir
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/sbin/adbd:root/sbin/adbd \
+    $(LOCAL_PATH)/rootdir/sbin/ueventd:root/sbin/ueventd \
+    $(LOCAL_PATH)/rootdir/init:root/init \
     $(LOCAL_PATH)/rootdir/fstab.delos3geur:root/fstab.delos3geur \
     $(LOCAL_PATH)/rootdir/init.delos.rc:root/init.delos.rc \
     $(LOCAL_PATH)/rootdir/init.delos.usb.rc:root/init.delos.usb.rc \
