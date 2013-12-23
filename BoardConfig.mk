@@ -145,7 +145,7 @@ BOARD_USES_LIBSECRIL_STUB := true
 ## Recovery
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/ramdisk/fstab.delos3geur
+TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/rootdir/fstab.delos3geur
 RECOVERY_FSTAB_VERSION := 2
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
