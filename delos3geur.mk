@@ -57,7 +57,7 @@ PRODUCT_COPY_FILES += \
     
 ## Charger
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/charget:root/charger \
+    $(LOCAL_PATH)/rootdir/charger:root/charger \
     $(LOCAL_PATH)/rootdir/res/images/battery_0.png:root/res/images/battery_0.png \
     $(LOCAL_PATH)/rootdir/res/images/battery_1.png:root/res/images/battery_1.png \
     $(LOCAL_PATH)/rootdir/res/images/battery_2.png:root/res/images/battery_2.png \
