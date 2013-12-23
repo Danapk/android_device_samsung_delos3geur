@@ -58,14 +58,14 @@ PRODUCT_COPY_FILES += \
 ## Charger
 PRODUCT_COPY_FILES += 
     $(LOCAL_PATH)/rootdir/charget:root/charger \
-    rootdir/res/images/battery_0.png:root/res/images/battery_0.png \
-    rootdir/res/images/battery_1.png:root/res/images/battery_1.png \
-    rootdir/res/images/battery_2.png:root/res/images/battery_2.png \
-    rootdir/res/images/battery_3.png:root/res/images/battery_3.png \
-    rootdir/res/images/battery_4.png:root/res/images/battery_4.png \
-    rootdir/res/images/battery_5.png:root/res/images/battery_5.png \
-    rootdir/res/images/battery_charge.png:root/res/images/battery_charge.png \
-    rootdir/res/images/battery_fail.png:root/res/images/battery_fail.png
+    $(LOCAL_PATH)/rootdir/res/images/battery_0.png:root/res/images/battery_0.png \
+    $(LOCAL_PATH)/rootdir/res/images/battery_1.png:root/res/images/battery_1.png \
+    $(LOCAL_PATH)/rootdir/res/images/battery_2.png:root/res/images/battery_2.png \
+    $(LOCAL_PATH)/rootdir/res/images/battery_3.png:root/res/images/battery_3.png \
+    $(LOCAL_PATH)/rootdir/res/images/battery_4.png:root/res/images/battery_4.png \
+    $(LOCAL_PATH)/rootdir/res/images/battery_5.png:root/res/images/battery_5.png \
+    $(LOCAL_PATH)/rootdir/res/images/battery_charge.png:root/res/images/battery_charge.png \
+    $(LOCAL_PATH)/rootdir/res/images/battery_fail.png:root/res/images/battery_fail.png
     
 
 ## Postboot
