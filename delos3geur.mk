@@ -35,22 +35,38 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
     
-## Ramdisk
+## rootdir
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/fstab.delos3geur:root/fstab.delos3geur \
-    $(LOCAL_PATH)/ramdisk/init.delos.rc:root/init.delos.rc \
-    $(LOCAL_PATH)/ramdisk/init.delos.usb.rc:root/init.delos.usb.rc \
-    $(LOCAL_PATH)/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-    $(LOCAL_PATH)/ramdisk/init.qcom.class_main.sh:root/nit.qcom.class_main.sh \
-    $(LOCAL_PATH)/ramdisk/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/ramdisk/init.qcom.ril.path.sh:root/init.qcom.ril.path.sh \
-    $(LOCAL_PATH)/ramdisk/init.qcom.sh:root/init.qcom.sh \
-    $(LOCAL_PATH)/ramdisk/init.qcom.unicorn-dpi.sh:root/init.qcom.unicorn-dpi.sh \
-    $(LOCAL_PATH)/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    $(LOCAL_PATH)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
-    $(LOCAL_PATH)/ramdisk/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/ramdisk/lpm.rc:root/lpm.rc \
-    $(LOCAL_PATH)/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc
+    $(LOCAL_PATH)/rootdir/fstab.delos3geur:root/fstab.delos3geur \
+    $(LOCAL_PATH)/rootdir/init.delos.rc:root/init.delos.rc \
+    $(LOCAL_PATH)/rootdir/init.delos.usb.rc:root/init.delos.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.class_main.sh:root/nit.qcom.class_main.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.ril.path.sh:root/init.qcom.ril.path.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.unicorn-dpi.sh:root/init.qcom.unicorn-dpi.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.usb.sh:root/init.qcom.usb.sh \
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/lpm.rc:root/lpm.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
+    
+## Charger
+PRODUCT_COPY_FILES += 
+    $(LOCAL_PATH)/rootdir/charget:root/charger \
+    rootdir/res/images/battery_0.png:root/res/images/battery_0.png \
+    rootdir/res/images/battery_1.png:root/res/images/battery_1.png \
+    rootdir/res/images/battery_2.png:root/res/images/battery_2.png \
+    rootdir/res/images/battery_3.png:root/res/images/battery_3.png \
+    rootdir/res/images/battery_4.png:root/res/images/battery_4.png \
+    rootdir/res/images/battery_5.png:root/res/images/battery_5.png \
+    rootdir/res/images/battery_charge.png:root/res/images/battery_charge.png \
+    rootdir/res/images/battery_fail.png:root/res/images/battery_fail.png
+    
 
 ## Postboot
 PRODUCT_COPY_FILES += \
