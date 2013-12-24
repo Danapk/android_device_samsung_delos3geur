@@ -54,23 +54,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/res/images/battery_5.png:root/res/images/battery_5.png \
     $(LOCAL_PATH)/rootdir/res/images/battery_charge.png:root/res/images/battery_charge.png \
     $(LOCAL_PATH)/rootdir/res/images/battery_fail.png:root/res/images/battery_fail.png
-    
-
-## Postboot
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/postboot/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.8x25.sh:system/etc/init.qcom.8x25.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.composition_type.sh:system/etc/init.qcom.composition_type.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
-    $(LOCAL_PATH)/postboot/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
-    
+        
 ## Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
@@ -98,9 +82,10 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     copybit.msm7x27a \
+    libqdutils \
+    libqdMetaData \
     libtilerenderer \
-    libqdMetaData
-
+    libI420colorconvert
 
 ## Bluetooth
 PRODUCT_PACKAGES += \
