@@ -138,41 +138,39 @@ PRODUCTS_PACKAGES += \
 
 ## Wifi Firmware
 ## from kernel.org
-PRODUCT_COPY_FILES += \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/data.patch.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.SD31.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6003/hw2.0/athwlan.bin.z77 \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.WB31.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/otp.bin.z77:/system/etc/firmware/ath6k/AR6003/hw2.0/otp.bin.z77 \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/endpointping.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/endpointping.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/data.patch.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.SD31.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.WB31.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/athwlan.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/athwlan.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/otp.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/otp.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/fw-3.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/fw-3.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/data.patch.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.SD31.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6003/hw1.0/athwlan.bin.z77 \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.WB31.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/otp.bin.z77:/system/etc/firmware/ath6k/AR6003/hw1.0/otp.bin.z77 \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/eeprom.data:/system/etc/firmware/ath6k/AR6002/eeprom.data \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/data.patch.hw2_0.bin:/system/etc/firmware/ath6k/AR6002/data.patch.hw2_0.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6002/athwlan.bin.z77 \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/eeprom.bin:/system/etc/firmware/ath6k/AR6002/eeprom.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/LICENSE.atheros_firmware:/system/etc/firmware/ath6k/LICENSE.atheros_firmware \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.CUSTOM.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.CUSTOM.bin \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.CUSTOM.bin
+#PRODUCT_COPY_FILES += \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/data.patch.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.SD31.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6003/hw2.0/athwlan.bin.z77 \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.WB31.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/otp.bin.z77:/system/etc/firmware/ath6k/AR6003/hw2.0/otp.bin.z77 \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/endpointping.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/endpointping.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/data.patch.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.SD31.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.WB31.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/athwlan.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/athwlan.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/otp.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/otp.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/fw-3.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/fw-3.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/data.patch.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.SD31.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6003/hw1.0/athwlan.bin.z77 \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.WB31.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/otp.bin.z77:/system/etc/firmware/ath6k/AR6003/hw1.0/otp.bin.z77 \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/eeprom.data:/system/etc/firmware/ath6k/AR6002/eeprom.data \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/data.patch.hw2_0.bin:/system/etc/firmware/ath6k/AR6002/data.patch.hw2_0.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6002/athwlan.bin.z77 \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/eeprom.bin:/system/etc/firmware/ath6k/AR6002/eeprom.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/LICENSE.atheros_firmware:/system/etc/firmware/ath6k/LICENSE.atheros_firmware \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.CUSTOM.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.CUSTOM.bin \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.CUSTOM.bin
 
 ## Wifi Firmware (hack for selecting proper bdata.bin)
-PRODUCT_COPY_FILES += \
-    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin
-
-
+#PRODUCT_COPY_FILES += \
+#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin
 
 ## Other
 PRODUCT_PACKAGES += \
@@ -211,10 +209,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.use_dithering=1 \
     ro.vold.umsdirtyratio=20
 
-# Enable "Android debugging" in Settings menu.
-# Enable USB mass storage (and adb) at boot.
+## Enable "Android debugging" in Settings menu.
+## Enable USB mass storage (and adb) at boot.
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
-    persist.sys.usb.config=mass_storage,adb \
+    persist.sys.usb.config=mass_storage,adb,mtp \
     persist.service.adb.enable=1 \
     ro.secure=0 \
     ro.adb.secure=0
+    
+## For userdebug builds
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0
