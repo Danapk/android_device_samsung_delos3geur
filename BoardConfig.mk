@@ -26,7 +26,6 @@ COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
 COMMON_GLOBAL_CFLAGS += -DQCOM_ENHANCED_AUDIO
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
@@ -124,7 +123,6 @@ TARGET_QCOM_HDMI_OUT := false
 BOARD_USE_MHEAP_SCREENSHOT := true
 TARGET_USES_C2D_COMPOSITION := true
 BOARD_USE_SKIA_LCDTEXT := true
-TARGET_USES_QCOM_BSP := true
 
 ## Disable initlogo, Samsungs framebuffer is weird
 TARGET_NO_INITLOGO := true
@@ -165,10 +163,6 @@ ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 HTTP := chrome
 TARGET_FORCE_CPU_UPLOAD := true
-
-## Optimisations used by Qualcomm
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 ## Hardware Class
 BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
