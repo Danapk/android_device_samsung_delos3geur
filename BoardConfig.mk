@@ -40,6 +40,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a5
 TARGET_BOOTLOADER_BOARD_NAME := msm8225
+ARCH_ARM_HAVE_TLS_REGISTER := true
 
 ## QCOM enhancements
 BOARD_USES_QCOM_HARDWARE := true
@@ -50,9 +51,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 ## Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.selinux=permissive loglevel=1 vmalloc=200M user_debug=31 maxcpus=4
 BOARD_KERNEL_BASE := 0x00200000
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01300000
 BOARD_KERNEL_PAGESIZE := 4096
 
 ## Try to build the kernel

@@ -194,14 +194,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.use_dithering=1 \
     ro.vold.umsdirtyratio=20
 
-## Enable "Android debugging" in Settings menu.
 ## Enable USB mass storage (and adb) at boot.
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
-    persist.sys.usb.config=mass_storage,adb,mtp \
+ADDITIONAL_DEFAULT_PROPERTIES := \
+    persist.sys.usb.config=mass_storage,adb \
     persist.service.adb.enable=1 \
     ro.secure=0 \
     ro.adb.secure=0
-    
-## For userdebug builds
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0
