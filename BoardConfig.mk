@@ -52,6 +52,7 @@ TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HIGH_OPTIMIZATION := true
+ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 
 ## QCOM enhancements
@@ -63,7 +64,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 ## Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1 vmalloc=200M
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.selinux=permissive loglevel=1 vmalloc=200M user_debug=31 maxcpus=4
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01300000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -71,7 +72,6 @@ BOARD_KERNEL_PAGESIZE := 4096
 ## Try to build the kernel
 TARGET_KERNEL_CONFIG := cm_delos3geur_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/delos3geur
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 ## Partition
 BOARD_BOOTIMAGE_PARTITION_SIZE := 12582912
@@ -128,6 +128,9 @@ BOARD_USE_MHEAP_SCREENSHOT := true
 TARGET_USES_C2D_COMPOSITION := true
 BOARD_USE_SKIA_LCDTEXT := true
 
+## Disable initlogo, Samsungs framebuffer is weird
+TARGET_NO_INITLOGO := true
+
 ## ION Support
 TARGET_USES_ION := true
 
@@ -165,9 +168,9 @@ JS_ENGINE := v8
 HTTP := chrome
 TARGET_FORCE_CPU_UPLOAD := true
 
-## More optimization
-TARGET_NO_HW_VSYNC := true
-ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
+## Optimisations used by Qualcomm
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 ## Hardware Class
 BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
