@@ -23,7 +23,6 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
 ## cflags
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
-COMMON_GLOBAL_CFLAGS += -DQCOM_ENHANCED_AUDIO -DMR0_AUDIO_BLOB
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DNEEDS_VECTORIMPL_SYMBOLS
 TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
@@ -80,10 +79,10 @@ BOARD_CACHE_DEVICE := /dev/block/mmcblk0p22
 BOARD_CACHE_FILESYSTEM := ext4
 BOARD_CACHE_FILESYSTEM_OPTIONS := rw
 
-## Audio
-TARGET_QCOM_AUDIO_VARIANT := caf
+# Audio
 BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_QCOM_AUDIO_RESETALL := true
+TARGET_QCOM_AUDIO_VARIANT := caf
 BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 
 ## Wi-Fi
@@ -102,7 +101,8 @@ WIFI_DRIVER_MODULE_NAME := ath6kl_sdio
 WIFI_DRIVER_MODULE_PATH := /system/lib/modules/ath6kl_sdio.ko
 WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
 
-## Graphics
+## Graphic
+BOARD_EGL_CFG := device/samsung/delos3geur/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
@@ -143,7 +143,7 @@ TARGET_PROVIDES_POWERHAL := true
 
 ## Camera
 BOARD_NEEDS_MEMORYHEAPPMEM := true
-CAMERA_USES_SURFACEFLINGER_CLIENT_STUB := true
+BOARD_CAMERA_USE_MM_HEAP := true
 
 ## Add h/w acceleration in browser
 ENABLE_WEBGL := true
