@@ -24,6 +24,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DNEEDS_VECTORIMPL_SYMBOLS
+COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_OMX
 TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
@@ -106,8 +107,6 @@ BOARD_EGL_CFG := device/samsung/delos3geur/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
-BOARD_EGL_NEEDS_LEGACY_FB := true
-BOARD_USE_SKIA_LCDTEXT := true
 TARGET_QCOM_LEGACY_OMX := true
 
 ## Samsung has weird framebuffer
