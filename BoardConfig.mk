@@ -21,11 +21,9 @@ BOARD_VENDOR := samsung
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
 
 ## cflags
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_OMX
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
-COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT 
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-COMMON_GLOBAL_CFLAGS += -DMSMFB_METADATA_GET
+COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
@@ -39,6 +37,8 @@ TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a5
 TARGET_BOOTLOADER_BOARD_NAME := msm8625q
 ARCH_ARM_HAVE_TLS_REGISTER := true
+
+## Dalvik
 TARGET_ARCH_LOWMEM := true
 
 ## QCOM enhancements
@@ -107,16 +107,13 @@ WIFI_DRIVER_MODULE_NAME := ath6kl_sdio
 WIFI_DRIVER_MODULE_PATH := /system/lib/modules/ath6kl_sdio.ko
 WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
 
-## Graphic
+## Graphics
 BOARD_EGL_CFG := device/samsung/delos3geur/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
-BOARD_EGL_NEEDS_LEGACY_FB := true
-BOARD_USE_SKIA_LCDTEXT := true
-TARGET_USES_C2D_COMPOSITION := true
 BOARD_USE_MHEAP_SCREENSHOT := true
-TARGET_NO_HW_VSYNC := false
+TARGET_QCOM_LEGACY_OMX := true
 
 ## Samsung has weird framebuffer
 TARGET_NO_INITLOGO := true
