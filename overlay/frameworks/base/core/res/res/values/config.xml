@@ -47,7 +47,4 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">20</integer>
 
-    <!-- Disable lockscreen translucent decor by default -->
-    <bool name="config_enableLockScreenTranslucentDecor">true</bool>
-
 </resources>
