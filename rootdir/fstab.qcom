@@ -9,6 +9,7 @@
 /dev/block/mmcblk0p24    /data     ext4     wait,check,encryptable=footer,length=-16384
 /dev/block/mmcblk0p8     /boot          emmc     defaults            defaults
 /dev/block/mmcblk0p13    /recovery      emmc     defaults            defaults
+/dev/block/mmcblk0p16    /efs      ext4     noatime,nosuid,nodev,journal_async_commit,errors=panic wait,check
 
 # Vold
 /devices/platform/msm_sdcc.3/mmc_host   auto     auto     defaults         voldmanaged=sdcard0:23,noemulatedsd
