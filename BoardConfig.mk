@@ -24,7 +24,6 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_OMX
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
-COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
