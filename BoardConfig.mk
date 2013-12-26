@@ -50,7 +50,9 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 ## Kernel
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.selinux=permissive loglevel=1 vmalloc=200M user_debug=31 maxcpus=4
 BOARD_KERNEL_BASE := 0x00200000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01300000
 BOARD_KERNEL_PAGESIZE := 4096
 
 ## Try to build the kernel
@@ -115,7 +117,7 @@ BOARD_EGL_NEEDS_LEGACY_FB := true
 BOARD_USE_SKIA_LCDTEXT := true
 TARGET_USES_C2D_COMPOSITION := true
 BOARD_USE_MHEAP_SCREENSHOT := true
-TARGET_NO_HW_VSYNC := true
+TARGET_NO_HW_VSYNC := false
 
 ## Samsung has weird framebuffer
 TARGET_NO_INITLOGO := true
