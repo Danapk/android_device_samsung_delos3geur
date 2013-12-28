@@ -37,12 +37,23 @@ PRODUCT_COPY_FILES += \
     
 ## Rootdir
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/init.delos.rc:root/init.delos.rc \
+    $(LOCAL_PATH)/rootdir/init.delos.usb.rc:root/init.delos.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.class_main.sh:root/nit.qcom.class_main.sh \
     $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.ril.path.sh:root/init.qcom.ril.path.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.unicorn-dpi.sh:root/init.qcom.unicorn-dpi.sh \
     $(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.usb.sh:root/init.qcom.usb.sh \
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
     $(LOCAL_PATH)/rootdir/lpm.rc:root/lpm.rc \
-    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom
+    $(LOCAL_PATH)/rootdir/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
     
 ## Charger
 PRODUCT_COPY_FILES += \
