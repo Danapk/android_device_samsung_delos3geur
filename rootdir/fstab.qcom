@@ -12,8 +12,9 @@
 # Recovery
 /dev/block/mmcblk0p8     /boot          emmc     defaults            defaults
 /dev/block/mmcblk0p13    /recovery      emmc     defaults            defaults
-/dev/block/mmcblk1p1	   /external_sd	  vfat	   defaults	           recoveryonly	
+/dev/block/mmcblk1p1           /external_sd          vfat           defaults                   recoveryonly    
 
 # Vold
+/devices/platform/msm_sdcc.3/mmc_host   auto     auto     defaults         voldmanaged=sdcard179:32,noemulatedsd
 /devices/platform/msm_sdcc.1/mmc_host/mmc1   auto    auto    defaults    voldmanaged=sdcard1:auto
 /devices/platform/msm_hsusb_host/usb         auto    auto    defaults    voldmanaged=usbdisk:auto
