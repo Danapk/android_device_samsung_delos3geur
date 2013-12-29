@@ -44,7 +44,7 @@ ro.fm.transmitter=false
 ro.fm.mulinst.recording.support=false
 
 ## USB, storage
-persist.sys.usb.config=mtp,adb
+persist.sys.usb.config=mass_storage,adb
 ro.additionalmounts=/storage/sdcard1
 ro.vold.switchablepair=/storage/sdcard1,/storage/sdcard0
 ro.vold.umsdirtyratio=50
@@ -57,3 +57,16 @@ dalvik.vm.execution-mode=int:jit
 
 ## CWM
 ro.cwm.enable_key_repeat=true
+
+# Misc
+ro.use_data_netmgrd=true
+persist.data.ds_fmc_app.mode=0
+httplive.enable.discontinuity=true
+ro.config.sync=yes
+ro.phone_storage=0
+ro.kernel.android.checkjni=0
+ro.android.secure=0
+ro.fuse_sdcard=true
+persist.sys.strictmode.visual=0
+persist.sys.strictmode.disable=1
+ro.bq.gpu_to_cpu_unsupported=true
