@@ -225,10 +225,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false \
     persist.sys.use_dithering=1 \
     ro.vold.umsdirtyratio=20
-    
-## Debugging
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0 \
-    persist.sys.usb.config=mass_storage,adb \
-    persist.service.adb.enable=1 \
-    ro.adb.secure=0
