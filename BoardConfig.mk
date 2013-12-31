@@ -60,7 +60,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 ## Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/delos3geur
 TARGET_KERNEL_CONFIG := cm_delos3geur_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 ## Partition
 ## fix this up by examining /proc/mtd on a running device
