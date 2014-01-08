@@ -18,6 +18,8 @@
 
 BOARD_VENDOR := samsung
 
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
+
 ## cflags
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_OMX
