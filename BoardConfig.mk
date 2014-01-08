@@ -23,17 +23,14 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/delos3geur/include
 ## cflags
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
-COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK -DBINDER_COMPAT
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
 TARGET_GLOBAL_CFLAGS   += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
 ## Platform
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_LOWMEM := true
 TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_CPU_ABI := armeabi-v7a
@@ -117,8 +114,8 @@ BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_QCOM_HDMI_OUT := false
 BOARD_USE_MHEAP_SCREENSHOT := true
-#TARGET_USES_C2D_COMPOSITION := true
-#BOARD_USE_SKIA_LCDTEXT := true
+TARGET_USES_C2D_COMPOSITION := true
+BOARD_USE_SKIA_LCDTEXT := true
 
 ## Samsung has weird framebuffer
 TARGET_NO_INITLOGO := true
@@ -130,9 +127,9 @@ TARGET_USES_ION := true
 TARGET_QCOM_MEDIA_VARIANT := legacy
 
 ## BT
-# This device uses bluez stack (csr bluetooth chip)
-#BOARD_HAVE_BLUETOOTH := true
-#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/delos3geur/bluetooth
+## This device uses bluez stack (csr bluetooth chip)
+##BOARD_HAVE_BLUETOOTH := true
+##BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/delos3geur/bluetooth
 
 ## RIL
 BOARD_USES_LEGACY_RIL := true
