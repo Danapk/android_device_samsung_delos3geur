@@ -51,15 +51,14 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 ## Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.selinux=permissive loglevel=1 vmalloc=200M
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1 vmalloc=200M
 BOARD_KERNEL_BASE := 0x00200000
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01300000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x200000
 BOARD_KERNEL_PAGESIZE := 4096
 
 ## Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/delos3geur
 TARGET_KERNEL_CONFIG := cm_delos3geur_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 ## Partition
 ## fix this up by examining /proc/mtd on a running device
