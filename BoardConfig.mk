@@ -61,7 +61,6 @@ TARGET_KERNEL_SOURCE := kernel/samsung/delos3geur
 TARGET_KERNEL_CONFIG := cm_delos3geur_defconfig
 
 ## Partition
-## fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 12582912
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12582912
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 524288000

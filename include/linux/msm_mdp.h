@@ -1,7 +1,7 @@
 /* include/linux/msm_mdp.h
  *
  * Copyright (C) 2007 Google Incorporated
- * Copyright (c) 2012 Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2012 The Linux Foundation. All rights reserved.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -70,8 +70,7 @@
 #define MSMFB_MDP_PP _IOWR(MSMFB_IOCTL_MAGIC, 156, struct msmfb_mdp_pp)
 #define MSMFB_OVERLAY_VSYNC_CTRL _IOW(MSMFB_IOCTL_MAGIC, 160, unsigned int)
 #define MSMFB_VSYNC_CTRL  _IOW(MSMFB_IOCTL_MAGIC, 161, unsigned int)
-#define MSMFB_OVERLAY_COMMIT      _IOW(MSMFB_IOCTL_MAGIC, 163, unsigned int)
-
+#define MSMFB_METADATA_SET  _IOW(MSMFB_IOCTL_MAGIC, 162, struct msmfb_metadata)
 #define FB_TYPE_3D_PANEL 0x10101010
 #define MDP_IMGTYPE2_START 0x10000
 #define MSMFB_DRIVER_VERSION	0xF9E8D701
@@ -139,6 +138,7 @@ enum {
 #define MDP_DITHER 0x8
 #define MDP_BLUR 0x10
 #define MDP_BLEND_FG_PREMULT 0x20000
+#define MDP_IS_FG 0x40000
 #define MDP_DEINTERLACE 0x80000000
 #define MDP_SHARPENING  0x40000000
 #define MDP_NO_DMA_BARRIER_START	0x20000000
@@ -154,6 +154,7 @@ enum {
 #define MDP_DEINTERLACE_ODD		0x00400000
 #define MDP_OV_PLAY_NOWAIT		0x00200000
 #define MDP_SOURCE_ROTATED_90		0x00100000
+#define MDP_DPP_HSIC			0x00080000
 #define MDP_BACKEND_COMPOSITION		0x00040000
 #define MDP_BORDERFILL_SUPPORTED	0x00010000
 #define MDP_SECURE_OVERLAY_SESSION      0x00008000
@@ -270,6 +271,17 @@ struct msmfb_writeback_data {
 	struct msmfb_img img;
 };
 
+struct dpp_ctrl {
+	/*
+	 *'sharp_strength' has inputs = -128 <-> 127
+	 *  Increasingly positive values correlate with increasingly sharper
+	 *  picture. Increasingly negative values correlate with increasingly
+	 *  smoothed picture.
+	 */
+	int8_t sharp_strength;
+	int8_t hsic_params[NUM_HSIC_PARAM];
+};
+
 struct mdp_overlay {
 	struct msmfb_img src;
 	struct mdp_rect src_rect;
@@ -281,6 +293,7 @@ struct mdp_overlay {
 	uint32_t flags;
 	uint32_t id;
 	uint32_t user_data[8];
+	struct dpp_ctrl dpp;
 };
 
 struct msmfb_overlay_3d {
@@ -427,7 +440,6 @@ struct mdp_hist_lut_data {
 	uint32_t *data;
 };
 
-
 struct mdp_lut_cfg_data {
 	uint32_t lut_type;
 	union {
@@ -445,12 +457,17 @@ struct mdp_qseed_cfg_data {
 	uint32_t *data;
 };
 
+struct mdp_bl_scale_data {
+	uint32_t min_lvl;
+	uint32_t scale;
+};
 
 enum {
 	mdp_op_pcc_cfg,
 	mdp_op_csc_cfg,
 	mdp_op_lut_cfg,
 	mdp_op_qseed_cfg,
+	mdp_bl_scale_cfg,
 	mdp_op_max,
 };
 
@@ -461,6 +478,7 @@ struct msmfb_mdp_pp {
 		struct mdp_csc_cfg_data csc_cfg_data;
 		struct mdp_lut_cfg_data lut_cfg_data;
 		struct mdp_qseed_cfg_data qseed_cfg_data;
+		struct mdp_bl_scale_data bl_scale_data;
 	} data;
 };
 
@@ -469,6 +487,23 @@ struct mdp_page_protection {
 	uint32_t page_protection;
 };
 
+enum {
+  metadata_op_none,
+  metadata_op_base_blend,
+  metadata_op_max
+};
+  
+struct mdp_blend_cfg {
+  uint32_t is_premultiplied;
+};
+
+struct msmfb_metadata {
+  uint32_t op;
+  uint32_t flags;
+  union {
+    struct mdp_blend_cfg blend_cfg;
+  } data;
+};
 
 struct mdp_mixer_info {
 	int pndx;
@@ -478,7 +513,7 @@ struct mdp_mixer_info {
 	int z_order;
 };
 
-#define MAX_PIPE_PER_MIXER  5
+#define MAX_PIPE_PER_MIXER  4
 
 struct msmfb_mixer_info_req {
 	int mixer_num;
