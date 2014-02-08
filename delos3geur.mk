@@ -16,24 +16,20 @@
 LOCAL_PATH := device/samsung/delos3geur
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
-
-## Hardware properties 
+## Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
     
 ## Rootdir
 PRODUCT_COPY_FILES += \
@@ -88,10 +84,6 @@ PRODUCT_PACKAGES += \
     libtilerenderer \
     libI420colorconvert
 
-## Bluetooth
-PRODUCT_PACKAGES += \
-    hciconfig \
-    hcitool
 
 ## Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -116,48 +108,17 @@ PRODUCT_PACKAGES += \
     
 ## Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27a	
-
-## Wi-Fi
-PRODUCTS_PACKAGES += \
-    ath6kl_sdio
-
-## Wifi Firmware
-## from kernel.org
-#PRODUCT_COPY_FILES += \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/data.patch.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.SD31.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6003/hw2.0/athwlan.bin.z77 \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.WB31.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/otp.bin.z77:/system/etc/firmware/ath6k/AR6003/hw2.0/otp.bin.z77 \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/endpointping.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/endpointping.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/data.patch.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.SD31.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.WB31.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/athwlan.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/athwlan.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/otp.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/otp.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/fw-3.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/fw-3.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/data.patch.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/data.patch.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD31.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.SD31.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6003/hw1.0/athwlan.bin.z77 \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.WB31.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.WB31.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/otp.bin.z77:/system/etc/firmware/ath6k/AR6003/hw1.0/otp.bin.z77 \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/eeprom.data:/system/etc/firmware/ath6k/AR6002/eeprom.data \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/data.patch.hw2_0.bin:/system/etc/firmware/ath6k/AR6002/data.patch.hw2_0.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/athwlan.bin.z77:/system/etc/firmware/ath6k/AR6002/athwlan.bin.z77 \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6002/eeprom.bin:/system/etc/firmware/ath6k/AR6002/eeprom.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/LICENSE.atheros_firmware:/system/etc/firmware/ath6k/LICENSE.atheros_firmware \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.0/bdata.CUSTOM.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.CUSTOM.bin \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw1.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.CUSTOM.bin
-
-## Wifi Firmware (hack for selecting proper bdata.bin)
-#PRODUCT_COPY_FILES += \
-#    device/samsung/delos3geur/proprietary/etc/wifi-firmware/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin
-
+    camera.msm7x27a
+    
+## Device-specific packages
+PRODUCT_PACKAGES += \
+    SamsungServiceMode
+    
+## QCOM RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=SamsungQualcommRIL \
+    ro.zygote.disable_gl_preload=true
+    
 ## Other
 PRODUCT_PACKAGES += \
     dexpreopt \
@@ -197,7 +158,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ## Enable USB mass storage (and adb) at boot.
 ADDITIONAL_DEFAULT_PROPERTIES := \
-    persist.sys.usb.config=mass_storage \
+    persist.sys.usb.config=mtp \
     persist.service.adb.enable=1 \
     ro.secure=0 \
     ro.adb.secure=0
