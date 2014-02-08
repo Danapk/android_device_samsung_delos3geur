@@ -51,14 +51,18 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/res/images/battery_5.png:root/res/images/battery_5.png \
     $(LOCAL_PATH)/rootdir/res/images/battery_charge.png:root/res/images/battery_charge.png \
     $(LOCAL_PATH)/rootdir/res/images/battery_fail.png:root/res/images/battery_fail.png
-        
+
+## rild
+PRODUCT_PACKAGES := \
+    rild \
+    BasicSmsReceiver
+    
 ## Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
-    audio.primary.default \
     audio_policy.msm7x27a \
-    audio_policy.default \
     audio.a2dp.default \
+    audio.usb.default \
     audio_policy.conf \
     libaudioutils
   
@@ -67,9 +71,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libstagefrighthw \
     libOmxCore \
-    libI420colorconvert \
-    libdashplayer \
-    qcmediaplayer
+    libI420colorconvert
 
 ## HW
 PRODUCT_PACKAGES += \
@@ -79,10 +81,7 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     copybit.msm7x27a \
-    libqdutils \
-    libqdMetaData \
-    libtilerenderer \
-    libI420colorconvert
+    libtilerenderer
 
 
 ## Live Wallpapers
