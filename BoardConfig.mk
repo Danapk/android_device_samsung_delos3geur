@@ -166,4 +166,4 @@ TARGET_FORCE_CPU_UPLOAD := true
 BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
 
 ## Power
-TARGET_USES_CM_POWERHAL := true
+TARGET_PROVIDES_POWERHAL := true
