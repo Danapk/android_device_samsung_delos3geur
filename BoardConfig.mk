@@ -142,11 +142,8 @@ BOARD_USES_LIBSECRIL_STUB := true
 BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
 
 ## Recovery
-BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/samsung/delos3geur/rootdir/fstab.qcom
 RECOVERY_FSTAB_VERSION := 2
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/delos3geur/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 ## Camera
