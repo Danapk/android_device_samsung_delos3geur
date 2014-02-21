@@ -111,7 +111,7 @@ WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enabl
 BOARD_EGL_CFG := device/samsung/delos3geur/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-TARGET_QCOM_DISPLAY_VARIANT := caf-new
+TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_USES_C2D_COMPOSITION := true
 
 ## Use retire fence from MDP driver
