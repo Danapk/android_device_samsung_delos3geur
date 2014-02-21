@@ -93,9 +93,10 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-## Power HAL
+## Power HAL & HealthD HAL
 PRODUCT_PACKAGES += \
-    power.msm7x27a
+    power.msm7x27a \
+    libhealthd.msm7x27a
 	
 ## Lights HAL
 PRODUCT_PACKAGES += \
