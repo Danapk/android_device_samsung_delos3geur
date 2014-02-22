@@ -81,9 +81,7 @@ PRODUCT_PACKAGES += \
     copybit.msm7x27a \
     libqdutils \
     libqdMetaData \
-    libtilerenderer \
-    libI420colorconvert
-
+    libtilerenderer
 
 ## Live Wallpapers
 PRODUCT_PACKAGES += \
