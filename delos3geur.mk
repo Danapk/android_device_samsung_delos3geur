@@ -38,24 +38,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc \
     $(LOCAL_PATH)/rootdir/lpm.rc:root/lpm.rc \
     $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom
-    
-## Charger
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/charger:root/charger \
-    $(LOCAL_PATH)/rootdir/res/images/battery_0.png:root/res/images/battery_0.png \
-    $(LOCAL_PATH)/rootdir/res/images/battery_1.png:root/res/images/battery_1.png \
-    $(LOCAL_PATH)/rootdir/res/images/battery_2.png:root/res/images/battery_2.png \
-    $(LOCAL_PATH)/rootdir/res/images/battery_3.png:root/res/images/battery_3.png \
-    $(LOCAL_PATH)/rootdir/res/images/battery_4.png:root/res/images/battery_4.png \
-    $(LOCAL_PATH)/rootdir/res/images/battery_5.png:root/res/images/battery_5.png \
-    $(LOCAL_PATH)/rootdir/res/images/battery_charge.png:root/res/images/battery_charge.png \
-    $(LOCAL_PATH)/rootdir/res/images/battery_fail.png:root/res/images/battery_fail.png
 
 ## rild
 PRODUCT_PACKAGES := \
     rild \
     BasicSmsReceiver
-    
+
 ## Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
