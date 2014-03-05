@@ -162,8 +162,5 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun%d/file"
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
-## Hardware Class
-BOARD_HARDWARE_CLASS := device/samsung/delos3geur/cmhw
-
 ## Power
 TARGET_USES_CM_POWERHAL := true
