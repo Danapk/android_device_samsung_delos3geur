@@ -144,7 +144,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ## Enable USB mass storage (and adb) at boot.
 ADDITIONAL_DEFAULT_PROPERTIES := \
-    persist.sys.usb.config=mtp \
+    persist.sys.usb.config=mtp,adb \
     persist.service.adb.enable=1 \
     ro.secure=0 \
     ro.adb.secure=0
